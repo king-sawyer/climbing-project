@@ -1,0 +1,26 @@
+{
+  "name": "climbapi",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./dist/server.js",
+    "build": "tsoa routes && tsc -p src",
+    "autogen-routes": "nodemon -w ./src/controllers -x tsoa spec-and-routes",
+    "debug": "nodemon",
+    "build-swagger": "tsoa spec"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.11.0",
+    "sequelize": "^6.31.1",
+    "tsoa": "^5.1.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.2.1",
+    "inversify": "^6.0.1",
+    "inversify-binding-decorators": "^4.0.0",
+    "typescript": "^5.0.4"
+  }
+}
