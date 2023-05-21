@@ -1,6 +1,6 @@
 // src/app.ts
 import express, {json, urlencoded} from "express";
-//import { RegisterRoutes } from "./routes/generated/routes";
+import { RegisterRoutes } from "./routes/generated/routes";
 
 export const app = express();
 
@@ -12,4 +12,4 @@ app.use(
 );
 app.use(json());
 
-//RegisterRoutes(app);
+RegisterRoutes(app);
