@@ -1,5 +1,5 @@
 const User = require('../models/user');
-import { Body, Controller, Post, Route, Security, Get, Path, Hidden, Put, Request } from "tsoa";
+import { Body, Controller, Post, Route, Security, Get, Path, Hidden, Put, Request, Delete } from "tsoa";
 import { UserCreateDto, UserDto, UserEditDto } from "../dtos/user-dto";
 import { inject } from "inversify";
 import { UserService } from "../services/user.service";
@@ -23,7 +23,7 @@ export class UserController extends Controller {
     @Post("")
     public async createUser(
         @Body() user: UserCreateDto
-    ): Promise<UserDto> {
+    ) {
         const newUser = await this.userService.addUser(user);
         return newUser;
     }
@@ -42,5 +42,12 @@ export class UserController extends Controller {
 
     ): Promise<UserDto> {
         return await this.userService.updateUser(userID, userEditDto);
+    }
+
+    @Delete("{userID}")
+    public async deleteUser(
+        @Path() userID: string
+    ){
+        return await this.userService.deleteUser(userID);
     }
 }

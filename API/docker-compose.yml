@@ -11,6 +11,7 @@ services:
       - PG_HOST=climb_db
     ports:
       - "3000:3000"
+    command: yarn debug
     depends_on:
       - climb_db
 

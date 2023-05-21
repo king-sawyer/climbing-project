@@ -15,7 +15,7 @@ export interface UserCreateDto{
 }
 
 export interface UserEditDto{
-    UserUuid: string;
+    UserUuid?: string;
     Name: string;
     Email: string;
 }
