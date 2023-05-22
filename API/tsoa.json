@@ -1,0 +1,26 @@
+{
+    "entryFile": "./src/app.ts",
+    "noImplicitAdditionalProperties": "silently-remove-extras",
+    "controllerPathGlobs": [
+        "./src/controllers/**/*.controller.ts"
+    ],
+
+    "spec":{
+        "specVersion": 3,
+        "outputDirectory":"./src",
+        "controllerPathGlobs": [
+            "./src/controllers/**/*.controller.ts"
+        ],
+        "securityDefinitions": {
+            "api_key" :{
+                "type": "apiKey",
+                "name": "authorization",
+                "in": "header"
+            }
+        }
+    },
+    "routes":{
+        "routesDir": "./src/routes/generated",
+        "iocModule": "src/ioc.ts"
+    }
+}
