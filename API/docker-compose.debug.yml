@@ -5,12 +5,15 @@ services:
     image: climb_api
     build: .
     environment:
+      - TS_NODE_PROJECT=/src/tsconfig.json
+      - ENVIRONMENT=DEBUG
       - PG_DB=climb_db
       - PG_USER=admin
       - PG_PASSWORD=password
       - PG_HOST=climb_db
     ports:
-      - "3000:3000"
+      - 3000:3000
+      - 9229:9229
     command: yarn debug
     depends_on:
       - climb_db

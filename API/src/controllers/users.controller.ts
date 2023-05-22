@@ -17,6 +17,8 @@ export class UserController extends Controller {
 
     @Get("")
     public async list() : Promise<UserDto[]>{
+        console.log("Hello");
+        console.log("Bellow");
         return await this.userService.list()
     }
 

@@ -3,6 +3,7 @@ import { app } from "./app";
 
 const sequelize = require('./util/database');
 
+console.log(`Port:${process.env.PORT}`);
 const port = process.env.PORT || 3000;
 
 //sync database
