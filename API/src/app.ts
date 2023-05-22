@@ -3,7 +3,7 @@ import express, {NextFunction, json, urlencoded, Response as ExResponse, Request
 import { RegisterRoutes } from "./routes/generated/routes";
 import { ValidateError } from "tsoa";
 
-export const app = express();
+const app = express();
 
 // Use body parser to read sent json payloads
 app.use(
@@ -36,3 +36,5 @@ app.use(function errorHandler(
 
   next();
 });
+
+export default app

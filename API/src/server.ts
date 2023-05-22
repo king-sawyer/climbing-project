@@ -1,14 +1,13 @@
 // src/server.ts
-import { app } from "./app";
+import app from "./app";
 
 const sequelize = require('./util/database');
 
-console.log(`Port:${process.env.PORT}`);
 const port = process.env.PORT || 3000;
 
-//sync database
+//connect to database database
 sequelize
-  .sync()
+  .authenticate()
   .then((result: any) => {
     console.log("Database connected");
     app.listen(port, () =>

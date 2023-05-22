@@ -4,26 +4,27 @@ const db = require('../util/database');
 export interface UserInterface {
     UserID: number;
     UserUuid: string;
-    Name: string;
+    FirstName: string;
+    LastName: string;
     Email: string;
   }
 
 const User = db.define('user', {
-    UserID: {
+    userID: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    UserUuid: {
+    userUuid: {
         type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
         allowNull: false,
         primaryKey: false,
         unique: true
     },
-    Name: Sequelize.STRING,
-    Email: Sequelize.STRING
+    firstName: Sequelize.STRING,
+    lastName: Sequelize.STRING,
+    email: Sequelize.STRING
 });
 
 export default User;

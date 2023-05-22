@@ -41,13 +41,14 @@ export class UserService {
     public async updateUser(userID: string, userEditDto: UserEditDto): Promise<UserDto> {
         let updatedUser;
 
-        let currentUser = User.findByPk(userID);
+        let currentUser: UserDto = User.findByPk(userID);
 
         if (!currentUser) {
             throw new Error("User not found");
         }
 
-        currentUser.Name = userEditDto.Name;
+        currentUser.FirstName = userEditDto.FirstName;
+        currentUser.LastName = userEditDto.LastName;
         currentUser.Email = userEditDto.Email;
 
         try {
